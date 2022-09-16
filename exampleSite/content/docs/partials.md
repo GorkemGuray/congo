@@ -27,10 +27,15 @@ To enable Fathom Analytics support, simply provide your Fathom site code in the 
 
 Google Analytics support is provided through the internal Hugo partial. Simply provide the `googleAnalytics` key in the `config/_default/config.toml` file and the script will be added automatically.
 
+Both version 3 (analytics.js) and version 4 (gtag.js) are supported, based on the configuration value provided:
+
 ```toml
 # config/_default/config.toml
 
+# version 3
 googleAnalytics = "UA-PROPERTY_ID"
+# version 4
+googleAnalytics = "G-MEASUREMENT_ID"
 ```
 
 ### Custom analytics providers
@@ -42,6 +47,8 @@ If you wish to use a different analytics provider on your website you can also o
 To add comments to your articles, Congo includes support for a comments partial that is included at the base of each article page. Simply provide a `layouts/partials/comments.html` which contains the code required to display your chosen comments.
 
 You can use either the built-in Hugo Disqus template, or provide your own custom code. Refer to the [Hugo docs](https://gohugo.io/content-management/comments/) for further information.
+
+Once the partial has been provided, finer control over where comments are displayed is then managed using the `showComments` parameter. This value can be set at the theme level in the `params.toml` [config file]({{< ref "configuration#theme-parameters" >}}), or on a per-article basis by including it in the [front matter]({{< ref "front-matter" >}}). The parameter defaults to `false` so it must be set to `true` in one of these locations in order for comments to be displayed.
 
 ## Favicons
 
